@@ -1,0 +1,82 @@
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaRegUser } from "react-icons/fa";
+import { TbLogout2 } from "react-icons/tb";
+import { IoIosArrowDown } from "react-icons/io";
+import { SlSettings } from "react-icons/sl";
+
+export const Header = ({ toggleSidebar }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  return (
+    <header className="sticky top-0 right-0 bg-white shadow-sm h-20 flex items-center justify-between px-4 py-4 md:px-6 2xl:px-11">
+      <div className="flex gap-3">
+        <button
+          className="px-2 py-1 shadow-sm text-gray-800 bg-white rounded-sm lg:hidden border text-2xl"
+          onClick={toggleSidebar}
+        >
+          <GiHamburgerMenu />
+        </button>
+        <h1 className="hidden text-2xl text-black2 font-bold sm:block">
+          Dashboard
+        </h1>
+      </div>
+      <div className="relative cursor-pointer" onClick={toggleDropdown}>
+        <div className="flex items-center gap-4">
+          <span className="text-right lg:block">
+            <span className="block text-[0.8rem] font-semibold text-black">
+              Thomas Anree
+            </span>
+            <span className="block text-xs font-medium text-black2">
+              UX Designer
+            </span>
+          </span>
+
+          <span className="h-12 w-12 rounded-full overflow-hidden flex items-center justify-center">
+            <img
+              src="https://demo.tailadmin.com/src/images/user/user-01.png"
+              alt="User"
+              className="h-full w-full object-cover"
+            />
+          </span>
+          <button className="flex items-center focus:outline-none">
+            <IoIosArrowDown
+              className={`w-4 h-4 transform transition-transform text-black2 ${
+                isDropdownOpen ? "rotate-180" : "rotate-0"
+              }`}
+            />
+          </button>
+          {/* Dropdown */}
+          {isDropdownOpen && (
+            <div className="absolute right-0 top-[3.51rem] mt-2 w-64 bg-white border border-gray-200 rounded-sm shadow-lg z-10">
+              <ul className="flex flex-col gap-5 px-6 py-7 border-b">
+                <li className="block text-black2 font-semibold">
+                  <a
+                    href="#"
+                    className="flex items-center gap-3 hover:text-primary text-sm lg:text-base duration-300 ease-in-out"
+                  >
+                    <FaRegUser /> Mi Perfil
+                  </a>
+                </li>
+                <li className="block text-black2 font-semibold">
+                  <a
+                    href="#"
+                    className="flex items-center gap-3 hover:text-primary text-sm lg:text-base duration-300 ease-in-out"
+                  >
+                    <SlSettings /> Configuración
+                  </a>
+                </li>
+              </ul>
+              <button className="flex items-center gap-3 px-6 py-4 text-sm font-medium text-black2 duration-300 ease-in-out hover:text-primary lg:text-base">
+                <TbLogout2 />
+                Cerrar Sesión
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+};
