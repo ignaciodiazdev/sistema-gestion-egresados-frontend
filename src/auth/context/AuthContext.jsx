@@ -28,7 +28,6 @@ export const AuthProvider = ({ children }) => {
     })();
   }, []);
 
-  console.log(auth);
   const login = async (token) => {
     setTokenStorage(token);
     const me = await getMe(token);
