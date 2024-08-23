@@ -16,6 +16,9 @@ export default {
         black2: "#64748B",
         primary: "#3C50E0",
       },
+      borderColor: {
+        primary: "#3C50E0",
+      },
     },
   },
   plugins: [],
