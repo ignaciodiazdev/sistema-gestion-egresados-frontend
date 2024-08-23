@@ -1,20 +1,7 @@
-import { FaRegCalendarAlt, FaRegBookmark, FaArrowLeft } from "react-icons/fa";
-import { RxDashboard } from "react-icons/rx";
-import { HiOutlineUsers } from "react-icons/hi";
-import { RiUserShared2Line } from "react-icons/ri";
-import { IoSchoolOutline } from "react-icons/io5";
-import { GoStack } from "react-icons/go";
-import { BsBook } from "react-icons/bs";
+import { FaArrowLeft } from "react-icons/fa";
 import { MenuList } from "./MenuList";
-// import adminRoutes from "../../routes/adminRoutes";
-// import { Link, useLocation } from "react-router-dom";
 
 export const Sidebar = ({ isOpen, toggleSidebar }) => {
-  // const location = useLocation();
-  // const filteredRoutes = adminRoutes.filter(
-  //   (route) => route.in_sidebar === true
-  // );
-
   return (
     <aside
       className={`fixed inset-y-0 left-0 w-72 z-20 bg-dark text-bodyDark transform ${

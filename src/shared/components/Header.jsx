@@ -4,12 +4,19 @@ import { FaRegUser } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 import { IoIosArrowDown } from "react-icons/io";
 import { SlSettings } from "react-icons/sl";
+import { useAuth } from "../../auth/hooks/useAuth";
 
 export const Header = ({ toggleSidebar }) => {
+  const { logout, auth } = useAuth();
+  const {
+    me: { first_name, last_name },
+  } = auth;
+  const fullName = `${first_name} ${last_name}`;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
   return (
     <header className="sticky top-0 right-0 bg-white shadow-sm h-20 flex items-center justify-between px-4 py-4 md:px-6 2xl:px-11">
       <div className="flex gap-3">
@@ -27,10 +34,10 @@ export const Header = ({ toggleSidebar }) => {
         <div className="flex items-center gap-4">
           <span className="text-right lg:block">
             <span className="block text-[0.8rem] font-semibold text-black">
-              Thomas Anree
+              {fullName}
             </span>
             <span className="block text-xs font-medium text-black2">
-              UX Designer
+              Administrador
             </span>
           </span>
 
@@ -69,7 +76,10 @@ export const Header = ({ toggleSidebar }) => {
                   </a>
                 </li>
               </ul>
-              <button className="flex items-center gap-3 px-6 py-4 text-sm font-medium text-black2 duration-300 ease-in-out hover:text-primary lg:text-base">
+              <button
+                className="flex items-center gap-3 px-6 py-4 text-sm font-medium text-black2 duration-300 ease-in-out hover:text-primary lg:text-base"
+                onClick={logout}
+              >
                 <TbLogout2 />
                 Cerrar Sesión
               </button>
