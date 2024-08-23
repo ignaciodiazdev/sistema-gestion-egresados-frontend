@@ -2,7 +2,7 @@ import { BASE_API } from "../../utils/constants";
 
 export async function loginApi(formValue) {
   try {
-    const url = `${BASE_API}/api/token/`;
+    const url = `${BASE_API}/token/`;
     const params = {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ export async function loginApi(formValue) {
 
 export async function getMeApi(token) {
   try {
-    const url = `${BASE_API}/api/auth/me/`;
+    const url = `${BASE_API}/auth/me/`;
     const params = {
       headers: {
         Authorization: `Bearer ${token}`,
