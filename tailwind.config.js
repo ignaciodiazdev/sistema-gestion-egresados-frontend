@@ -17,7 +17,8 @@ export default {
         primary: "#3C50E0",
       },
       borderColor: {
-        primary: "#3C50E0",
+        primary: "#e2e8f0",
+        // primary: "#3C50E0",
       },
     },
   },
