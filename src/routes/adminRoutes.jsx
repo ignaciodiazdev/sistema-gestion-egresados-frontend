@@ -18,6 +18,7 @@ import { EgresadosPage } from "../admin/pages/egresados";
 import { GestionGradosPage } from "../admin/pages/gestion-grados";
 // <=== Imports Periodos ===>
 import { PeriodosPage } from "../admin/pages/periodos";
+import { PeriodoRegister, PeriodoEdit } from "../admin/pages/periodos/crud";
 // <=== Imports Carrera ===>
 import { CarrerasPage } from "../admin/pages/carreras";
 import { CarreraRegister, CarreraEdit } from "../admin/pages/carreras/crud";
@@ -80,6 +81,18 @@ const adminRoutes = [
     icon: <FaRegCalendarAlt />,
     name: "Periodos",
     in_sidebar: true,
+  },
+  {
+    path: "/periodos/registrar",
+    layout: MainLayout,
+    page: PeriodoRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/periodos/editar/:id",
+    layout: MainLayout,
+    page: PeriodoEdit,
+    in_sidebar: false,
   },
   {
     path: "/carreras",
