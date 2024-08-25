@@ -1,7 +1,12 @@
+import { AlumnoList } from "./crud/AlumnoList";
+
 export const AlumnosPage = () => {
   return (
-    <>
-      <h1 className="text-2xl font-bold text-black">Alumnos Page</h1>
-    </>
+    <div>
+      <h1 className="text-4xl text-indigo-700 font-bold mb-7">Alumnos</h1>
+      <div className="space-y-8">
+        <AlumnoList />
+      </div>
+    </div>
   );
 };

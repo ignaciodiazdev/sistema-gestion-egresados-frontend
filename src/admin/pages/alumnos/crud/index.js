@@ -1,2 +1,3 @@
-export * from "./AlumnoRegister";
 export * from "./AlumnoEdit";
+export * from "./AlumnoList";
+export * from "./AlumnoRegister";
