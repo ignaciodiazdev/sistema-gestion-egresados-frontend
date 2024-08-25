@@ -15,6 +15,7 @@ export default {
         black: "#1C2434",
         black2: "#64748B",
         primary: "#3C50E0",
+        required: "#EF4444",
       },
       borderColor: {
         primary: "#e2e8f0",
