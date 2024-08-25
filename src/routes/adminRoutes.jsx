@@ -27,6 +27,10 @@ import { EstadosPage } from "../admin/pages/estados";
 import { EstadoRegister, EstadoEdit } from "../admin/pages/estados/crud";
 // <=== Imports Grados Academicos ===>
 import { GradosAcademicosPage } from "../admin/pages/grados-academicos";
+import {
+  GradoAcademicoRegister,
+  GradoAcademicoEdit,
+} from "../admin/pages/grados-academicos/crud";
 
 const adminRoutes = [
   {
@@ -141,6 +145,18 @@ const adminRoutes = [
     icon: <BsBook />,
     name: "Grados Académicos",
     in_sidebar: true,
+  },
+  {
+    path: "/grados-academicos/registrar",
+    layout: MainLayout,
+    page: GradoAcademicoRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/grados-academicos/editar/:id",
+    layout: MainLayout,
+    page: GradoAcademicoEdit,
+    in_sidebar: false,
   },
 ];
 
