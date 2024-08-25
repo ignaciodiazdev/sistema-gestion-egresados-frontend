@@ -34,7 +34,14 @@ export const Table = ({ columns, data, onEdit, onDelete }) => {
                 className={rowIndex % 2 === 0 ? "bg-white" : "bg-gray-100"}
               >
                 {columns.map((column) => (
-                  <td key={column.accessor} className="py-2 px-6">
+                  <td
+                    key={column.accessor}
+                    className={
+                      column.minWidth
+                        ? `py-2 px-6 text-sm ${column.minWidth}`
+                        : "py-2 px-6 text-sm"
+                    }
+                  >
                     {column.Cell
                       ? column.Cell(row[column.accessor])
                       : row[column.accessor]}
