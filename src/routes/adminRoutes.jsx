@@ -10,11 +10,8 @@ import { MainLayout } from "../shared/layouts/MainLayout";
 // <=== Imports Dashboard ===>
 import { DashboardPage } from "../admin/pages/dashboard";
 // <=== Imports Alumnos ===>
-import {
-  AlumnosPage,
-  AlumnoRegister,
-  AlumnoEdit,
-} from "../admin/pages/alumnos";
+import { AlumnosPage } from "../admin/pages/alumnos";
+import { AlumnoRegister, AlumnoEdit } from "../admin/pages/alumnos/crud";
 // <=== Imports Egresados ===>
 import { EgresadosPage } from "../admin/pages/egresados";
 // <=== Imports Gestion de Grados ===>
@@ -25,6 +22,7 @@ import { PeriodosPage } from "../admin/pages/periodos";
 import { CarrerasPage } from "../admin/pages/carreras";
 // <=== Imports Estados ===>
 import { EstadosPage } from "../admin/pages/estados";
+import { EstadoRegister, EstadoEdit } from "../admin/pages/estados/crud";
 // <=== Imports Grados Academicos ===>
 import { GradosAcademicosPage } from "../admin/pages/grados-academicos";
 
@@ -97,6 +95,18 @@ const adminRoutes = [
     icon: <GoStack />,
     name: "Estados",
     in_sidebar: true,
+  },
+  {
+    path: "/estados/registrar",
+    layout: MainLayout,
+    page: EstadoRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/estados/editar/:id",
+    layout: MainLayout,
+    page: EstadoEdit,
+    in_sidebar: false,
   },
   {
     path: "/grados-academicos",
