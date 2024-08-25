@@ -20,6 +20,7 @@ import { GestionGradosPage } from "../admin/pages/gestion-grados";
 import { PeriodosPage } from "../admin/pages/periodos";
 // <=== Imports Carrera ===>
 import { CarrerasPage } from "../admin/pages/carreras";
+import { CarreraRegister, CarreraEdit } from "../admin/pages/carreras/crud";
 // <=== Imports Estados ===>
 import { EstadosPage } from "../admin/pages/estados";
 import { EstadoRegister, EstadoEdit } from "../admin/pages/estados/crud";
@@ -87,6 +88,18 @@ const adminRoutes = [
     icon: <FaRegBookmark />,
     name: "Carreras",
     in_sidebar: true,
+  },
+  {
+    path: "/carreras/registrar",
+    layout: MainLayout,
+    page: CarreraRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/carreras/editar/:id",
+    layout: MainLayout,
+    page: CarreraEdit,
+    in_sidebar: false,
   },
   {
     path: "/estados",
