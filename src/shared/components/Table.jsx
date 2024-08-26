@@ -38,13 +38,13 @@ export const Table = ({ columns, data, onEdit, onDelete }) => {
                     key={column.accessor}
                     className={
                       column.minWidth
-                        ? `py-2 px-6 text-sm ${column.minWidth}`
-                        : "py-2 px-6 text-sm"
+                        ? `py-2 px-6 text-sm truncate ${column.minWidth}`
+                        : "py-2 px-6 text-sm truncate"
                     }
                   >
                     {column.Cell
                       ? column.Cell(row[column.accessor])
-                      : row[column.accessor]}
+                      : row[column.accessor] || "No registrado"}
                   </td>
                 ))}
                 <td className="p-2 flex gap-8">
