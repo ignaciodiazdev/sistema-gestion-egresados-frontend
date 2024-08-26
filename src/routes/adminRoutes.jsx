@@ -14,6 +14,7 @@ import { AlumnosPage } from "../admin/pages/alumnos";
 import { AlumnoRegister, AlumnoEdit } from "../admin/pages/alumnos/crud";
 // <=== Imports Egresados ===>
 import { EgresadosPage } from "../admin/pages/egresados";
+import { EgresadoRegister, EgresadoEdit } from "../admin/pages/egresados/crud";
 // <=== Imports Gestion de Grados ===>
 import { GestionGradosPage } from "../admin/pages/gestion-grados";
 // <=== Imports Periodos ===>
@@ -68,6 +69,18 @@ const adminRoutes = [
     icon: <RiUserShared2Line />,
     name: "Egresados",
     in_sidebar: true,
+  },
+  {
+    path: "/egresados/registrar",
+    layout: MainLayout,
+    page: EgresadoRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/egresados/editar/:id",
+    layout: MainLayout,
+    page: EgresadoEdit,
+    in_sidebar: false,
   },
   {
     path: "/gestion-grados",
