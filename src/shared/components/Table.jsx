@@ -1,4 +1,6 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 export const Table = ({ columns, data, onEdit, onDelete }) => {
   return (
@@ -24,7 +26,7 @@ export const Table = ({ columns, data, onEdit, onDelete }) => {
                 colSpan={columns.length + 1}
                 className="h-52 px-6 text-center text-gray-400 font-semibold bg-white bg-opacity-85"
               >
-                No hay resultados
+                No se encontraron resultados
               </td>
             </tr>
           ) : (
@@ -43,22 +45,22 @@ export const Table = ({ columns, data, onEdit, onDelete }) => {
                     }
                   >
                     {column.Cell
-                      ? column.Cell(row[column.accessor])
+                      ? column.Cell({ value: row[column.accessor] })
                       : row[column.accessor] || "No registrado"}
                   </td>
                 ))}
-                <td className="p-2 flex gap-8">
+                <td className="p-2 flex gap-2">
                   <button
                     onClick={() => onEdit(row)}
-                    className="text-blue-600 hover:text-blue-900 mr-2"
+                    className="text-green-600 hover:text-green-800 mr-2 text-xl"
                   >
-                    Editar
+                    <FaEdit />
                   </button>
                   <button
                     onClick={() => onDelete(row)}
-                    className="text-red-600 hover:text-red-900"
+                    className="text-red-600 hover:text-red-700 text-xl"
                   >
-                    Eliminar
+                    <MdDelete />
                   </button>
                 </td>
               </tr>
