@@ -82,3 +82,17 @@ export const deleteApiAlumnoById = async (id) => {
     throw error;
   }
 };
+
+export const getApiAlumnosByFilter = async (propiedad, valor) => {
+  const url = `${BASE_API}/alumnos/?${propiedad}=${valor}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Error al obtener los alumnos");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
