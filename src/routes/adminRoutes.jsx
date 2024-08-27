@@ -17,6 +17,10 @@ import { EgresadosPage } from "../admin/pages/egresados";
 import { EgresadoRegister, EgresadoEdit } from "../admin/pages/egresados/crud";
 // <=== Imports Gestion de Grados ===>
 import { GestionGradosPage } from "../admin/pages/gestion-grados";
+import {
+  GestionGradoRegister,
+  GestionGradoEdit,
+} from "../admin/pages/gestion-grados/crud";
 // <=== Imports Periodos ===>
 import { PeriodosPage } from "../admin/pages/periodos";
 import { PeriodoRegister, PeriodoEdit } from "../admin/pages/periodos/crud";
@@ -89,6 +93,18 @@ const adminRoutes = [
     icon: <IoSchoolOutline />,
     name: "Gestión de Grados",
     in_sidebar: true,
+  },
+  {
+    path: "/gestion-grados/registrar",
+    layout: MainLayout,
+    page: GestionGradoRegister,
+    in_sidebar: false,
+  },
+  {
+    path: "/gestion-grados/editar/:id",
+    layout: MainLayout,
+    page: GestionGradoEdit,
+    in_sidebar: false,
   },
   //   <========= Mantenimiento =========>
   {
