@@ -1,21 +1,15 @@
-import { GoStack } from "react-icons/go";
-export const Card = () => {
+export const Card = ({ icono, titulo, cantidad }) => {
   return (
-    <div className="rounded-sm border border-stroke bg-white px-7 py-6 shadow-sm">
-      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#eff2f7] text-primary text-2xl">
-        <GoStack />
-      </div>
-
-      <div className="mt-4 flex items-end justify-between">
-        <div>
-          <h4 className="text-2xl font-bold text-black">$2.450k</h4>
-          <span className="text-sm font-medium">Total Product</span>
+    <article className="rounded-sm border border-stroke bg-white px-7 py-7 shadow-sm">
+      <div className="flex items-center gap-5">
+        <div className="flex items-center justify-center rounded-full bg-[#eff2f7] text-primary text-[50px] p-3">
+          {icono}
         </div>
-
-        <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
-          2.59%
-        </span>
+        <div>
+          <h4 className="text-4xl font-bold text-black">{cantidad}</h4>
+          <span className="text-sm font-medium text-gray-600">{titulo}</span>
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
