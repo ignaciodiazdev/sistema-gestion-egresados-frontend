@@ -10,6 +10,9 @@ export const SignIn = () => {
   useEffect(() => {
     if (auth?.me.is_staff) {
       navigate("/dashboard");
+    } else if (auth?.me.is_staff === false) {
+      console.log("eres alumno");
+      navigate("/usuario-inicio");
     }
   }, [auth]);
 
