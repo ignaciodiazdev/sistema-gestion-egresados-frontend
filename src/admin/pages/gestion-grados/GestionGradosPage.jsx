@@ -1,5 +1,4 @@
 import { GestionGradoList } from "./crud/GestionGradoList";
-import { GestionTest } from "./crud/GestionTest";
 
 export const GestionGradosPage = () => {
   return (
