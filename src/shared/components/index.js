@@ -8,3 +8,4 @@ export * from "./Input";
 export * from "./SelectItem";
 export * from "./Table";
 export * from "./TextArea";
+export * from "./Modal";
