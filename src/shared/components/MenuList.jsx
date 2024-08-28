@@ -1,11 +1,20 @@
-import adminRoutes from "../../routes/adminRoutes";
+import { useAuth } from "../../auth/hooks/useAuth";
+import { adminRoutes, userRoutes } from "../../routes/adminRoutes";
 import { Link, useLocation } from "react-router-dom";
 
 export const MenuList = () => {
   const location = useLocation();
-  const filteredRoutes = adminRoutes.filter(
-    (route) => route.in_sidebar === true
-  );
+  const {
+    auth: { me },
+  } = useAuth();
+
+  let filteredRoutes;
+  if (me?.is_staff) {
+    filteredRoutes = adminRoutes.filter((route) => route.in_sidebar === true);
+  } else {
+    filteredRoutes = userRoutes.filter((route) => route.in_sidebar === true);
+  }
+  console.log(me?.is_staff);
 
   return (
     <div>

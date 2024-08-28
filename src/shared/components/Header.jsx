@@ -9,9 +9,15 @@ import { useAuth } from "../../auth/hooks/useAuth";
 export const Header = ({ toggleSidebar }) => {
   const { logout, auth } = useAuth();
   const {
-    me: { first_name, last_name },
+    me,
+    userInfo: { nombre, apellido_paterno, apellido_materno },
   } = auth;
-  const fullName = `${first_name} ${last_name}`;
+  let fullName;
+  if (me.is_staff) {
+    fullName = `${nombre} ${apellido_paterno}`;
+  } else {
+    fullName = `${nombre} ${apellido_paterno} ${apellido_materno}`;
+  }
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -33,7 +39,7 @@ export const Header = ({ toggleSidebar }) => {
       <div className="relative cursor-pointer" onClick={toggleDropdown}>
         <div className="flex items-center gap-4">
           <span className="text-right lg:block">
-            <span className="block text-[0.8rem] font-semibold text-black">
+            <span className="block text-[0.8rem] font-semibold text-black truncate max-w-28 sm:max-w-full">
               {fullName}
             </span>
             <span className="block text-xs font-medium text-black2">
