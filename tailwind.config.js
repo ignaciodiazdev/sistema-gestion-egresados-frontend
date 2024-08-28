@@ -8,6 +8,7 @@ export default {
         body: "#F1F5F9",
         grayDark: "#333a48",
         primary: "#3C50E0",
+        secondary: "#10B981",
       },
       textColor: {
         bodyDark: "#DEE4EE",
