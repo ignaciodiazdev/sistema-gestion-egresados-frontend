@@ -4,7 +4,7 @@ import { MenuList } from "./MenuList";
 export const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <aside
-      className={`fixed inset-y-0 left-0 w-72 z-20 bg-dark text-bodyDark transform ${
+      className={`fixed inset-y-0 left-0 w-72 z-1 bg-dark text-bodyDark transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0`}
     >
