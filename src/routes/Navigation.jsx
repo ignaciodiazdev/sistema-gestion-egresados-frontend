@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignIn } from "../auth/pages/SignIn.jsx";
 import { useAuth } from "../auth/hooks/useAuth.js";
-import adminRoutes from "./adminRoutes.jsx";
+import { adminRoutes, userRoutes } from "./adminRoutes.jsx";
 import ProtectedRouteAdmin from "./ProtectedRouteAdmin.jsx";
-import { userRoutes } from "./userRoutes.jsx";
 import ProtectedRouteUser from "./ProtectedRouteUser.jsx";
 
 export const Navigation = () => {
