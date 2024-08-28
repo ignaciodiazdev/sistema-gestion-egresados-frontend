@@ -14,14 +14,24 @@ export const AuthContext = createContext({
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(undefined);
-  const { getMe } = useUser();
+  const { getMe, getMeAlumno } = useUser();
   useEffect(() => {
     (async () => {
       //Codigo para desloguear al usuario si el auth es null
       const token = getTokenStorage();
       if (token) {
         const me = await getMe(token);
-        setAuth({ token, me });
+        const userRole = me.is_staff;
+        let userInfo;
+        if (userRole === true) {
+          const { first_name: nombre, last_name: apellido_paterno } = me;
+          userInfo = { nombre, apellido_paterno };
+        } else if (userRole === false) {
+          // userInfo = await getAlumnoInfo(token);
+          userInfo = await getMeAlumno(token);
+        }
+
+        setAuth({ token, me, userInfo });
       } else {
         setAuth(null);
       }
@@ -31,7 +41,17 @@ export const AuthProvider = ({ children }) => {
   const login = async (token) => {
     setTokenStorage(token);
     const me = await getMe(token);
-    setAuth({ token, me });
+    const userRole = me.is_staff; // Asumimos que 'role' viene en la respuesta de getMe
+
+    let userInfo;
+    if (userRole === true) {
+      const { first_name: nombre, last_name: apellido_paterno } = me;
+      userInfo = { nombre, apellido_paterno };
+    } else if (userRole === false) {
+      // userInfo = await getAlumnoInfo(token);
+      userInfo = await getMeAlumno(token);
+    }
+    setAuth({ token, me, userInfo });
   };
   const logout = () => {
     if (auth) {

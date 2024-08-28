@@ -1,4 +1,4 @@
-import { getMeApi } from "../api/user";
+import { getMeAlumnoApi, getMeApi } from "../api/user";
 import { useAuth } from "./useAuth";
 
 export function useUser() {
@@ -12,8 +12,16 @@ export function useUser() {
       throw error;
     }
   };
-
+  const getMeAlumno = async (token) => {
+    try {
+      const response = await getMeAlumnoApi(token);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };
   return {
     getMe,
+    getMeAlumno,
   };
 }
