@@ -9,6 +9,7 @@ export default {
         grayDark: "#333a48",
         primary: "#3C50E0",
         secondary: "#10B981",
+        third: "#E90066",
       },
       textColor: {
         bodyDark: "#DEE4EE",
@@ -17,9 +18,11 @@ export default {
         black2: "#64748B",
         primary: "#3C50E0",
         required: "#EF4444",
+        third: "#E90066",
       },
       borderColor: {
         primary: "#e2e8f0",
+        third: "#E90066",
         // primary: "#3C50E0",
       },
     },
