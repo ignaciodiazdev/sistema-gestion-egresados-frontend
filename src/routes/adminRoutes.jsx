@@ -37,7 +37,7 @@ import {
   GradoAcademicoEdit,
 } from "../admin/pages/grados-academicos/crud";
 
-const adminRoutes = [
+export const adminRoutes = [
   {
     path: "/dashboard",
     layout: MainLayout,
@@ -189,4 +189,14 @@ const adminRoutes = [
   },
 ];
 
-export default adminRoutes;
+import { Inicio } from "../users/pages/inicio/Inicio";
+export const userRoutes = [
+  {
+    path: "/usuario-inicio",
+    layout: MainLayout,
+    page: Inicio,
+    icon: <RxDashboard />,
+    name: "Inicio",
+    in_sidebar: true,
+  },
+];
