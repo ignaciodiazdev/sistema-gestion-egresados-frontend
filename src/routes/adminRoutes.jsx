@@ -191,6 +191,7 @@ export const adminRoutes = [
 
 import { Inicio } from "../users/pages/inicio/Inicio";
 import { CertificadosPage } from "../users/pages/certificados/CertificadosPage";
+import { ExperienciasPage } from "../users/pages/experencias/ExperienciasPage";
 export const userRoutes = [
   {
     path: "/usuario-inicio",
@@ -206,6 +207,14 @@ export const userRoutes = [
     page: CertificadosPage,
     icon: <RxDashboard />,
     name: "Mis Certificados",
+    in_sidebar: true,
+  },
+  {
+    path: "/experiencias",
+    layout: MainLayout,
+    page: ExperienciasPage,
+    icon: <RxDashboard />,
+    name: "Experiencias Laborales",
     in_sidebar: true,
   },
 ];
