@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useModal } from "../../../shared/hooks/useModal";
-import { Form } from "./Form";
 import {
   CardDatosUsuario,
   CardContactoUsuario,
@@ -10,19 +7,6 @@ import {
 import { useAuth } from "../../../auth/hooks/useAuth";
 
 export const Inicio = () => {
-  const { openModal } = useModal();
-  const [refresh, setRefresh] = useState(false);
-  const handleOpenModal = () => {
-    openModal(<Form setRefresh={setRefresh} />);
-  };
-
-  useEffect(() => {
-    setRefresh(refresh);
-    console.log("Volviendo a Renderizar");
-    console.log("Valor de Refresh:", refresh);
-  }, [refresh]);
-
-  // Userinfo
   const {
     auth: { userInfo },
   } = useAuth();
