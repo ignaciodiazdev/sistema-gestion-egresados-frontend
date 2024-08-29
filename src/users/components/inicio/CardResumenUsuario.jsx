@@ -69,7 +69,9 @@ export const CardResumenUsuario = () => {
         </button>
       </div>
       <CardUser>
-        <div className="text-[12px] lg:text-base">{contentResumen}</div>
+        <div className="text-[12px] lg:text-base min-h-[300px] xl:min-h-[500px]">
+          {contentResumen}
+        </div>
       </CardUser>
     </>
   );

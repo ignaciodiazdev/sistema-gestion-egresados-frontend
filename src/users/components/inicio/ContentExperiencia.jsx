@@ -59,7 +59,7 @@ export const ContentExperiencia = () => {
   }, []);
 
   return (
-    <article className="xl:min-h-[550px]">
+    <article>
       <h2 className="mb-2 font-bold text-sm lg:text-xl">
         Experiencias Laborales
       </h2>
@@ -72,7 +72,7 @@ export const ContentExperiencia = () => {
                 <BsFillBriefcaseFill />
               </div>
               <div className="">
-                <p className="my-1 font-bold text-primary text-base lg:text-lg">
+                <p className="my-1 font-bold text-primary text-base  lg:text-base">
                   {experiencia.empresa}
                 </p>
                 <p className="font-semibold my-1 text-sm">

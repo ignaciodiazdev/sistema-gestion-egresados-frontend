@@ -16,7 +16,7 @@ export const ContentEducacion = () => {
   }, []);
 
   return (
-    <article className="xl:min-h-[550px]">
+    <article className="">
       <h2 className="mb-2 font-bold text-sm lg:text-xl">Formación académica</h2>
       <hr />
       <div className="my-4 flex flex-col gap-2 xl:gap-5">
@@ -26,7 +26,7 @@ export const ContentEducacion = () => {
               <IoSchool />
             </div>
             <div>
-              <p className="my-1 font-bold text-primary text-base lg:text-lg">
+              <p className="my-1 font-bold text-primary text-base lg:text-base">
                 {educacion.carrera}
               </p>
               <p className="font-semibold my-1 text-sm">
