@@ -1,8 +1,8 @@
 import { HiOutlineUsers } from "react-icons/hi";
 import { RxDashboard } from "react-icons/rx";
 import { RiUserShared2Line } from "react-icons/ri";
-import { IoSchoolOutline } from "react-icons/io5";
-import { FaRegBookmark, FaRegCalendarAlt } from "react-icons/fa";
+import { IoBusinessOutline, IoSchoolOutline } from "react-icons/io5";
+import { FaRegBookmark, FaRegCalendarAlt, FaRegStar } from "react-icons/fa";
 import { BsBook } from "react-icons/bs";
 import { GoStack } from "react-icons/go";
 import { MainLayout } from "../shared/layouts/MainLayout";
@@ -193,6 +193,10 @@ import { Inicio } from "../users/pages/inicio/Inicio";
 import { CertificadosPage } from "../users/pages/certificados/CertificadosPage";
 import { ExperienciasPage } from "../users/pages/experencias/ExperienciasPage";
 import { EducacionesPage } from "../users/pages/educaciones/EducacionesPage";
+import { EmpleosPage } from "../users/pages/empleos/EmpleosPage";
+import { MdOutlineSchool } from "react-icons/md";
+import { GrUserExpert } from "react-icons/gr";
+
 export const userRoutes = [
   {
     path: "/usuario-inicio",
@@ -206,7 +210,7 @@ export const userRoutes = [
     path: "/certficados",
     layout: MainLayout,
     page: CertificadosPage,
-    icon: <RxDashboard />,
+    icon: <FaRegStar />,
     name: "Mis Certificados",
     in_sidebar: true,
   },
@@ -214,7 +218,7 @@ export const userRoutes = [
     path: "/experiencias",
     layout: MainLayout,
     page: ExperienciasPage,
-    icon: <RxDashboard />,
+    icon: <GrUserExpert />,
     name: "Experiencias Laborales",
     in_sidebar: true,
   },
@@ -222,8 +226,16 @@ export const userRoutes = [
     path: "/educaciones",
     layout: MainLayout,
     page: EducacionesPage,
-    icon: <RxDashboard />,
+    icon: <MdOutlineSchool />,
     name: "Formación Académica",
+    in_sidebar: true,
+  },
+  {
+    path: "/empleos",
+    layout: MainLayout,
+    page: EmpleosPage,
+    icon: <IoBusinessOutline />,
+    name: "Ofertas Laborales",
     in_sidebar: true,
   },
 ];
