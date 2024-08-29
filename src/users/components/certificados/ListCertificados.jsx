@@ -16,7 +16,7 @@ export const ListCertificados = ({ certificados, setRefresh }) => {
       confirmText: "Sí, eliminar!",
       onConfirm: () => {
         deleteCertificado(id);
-        setRefresh();
+        setRefresh((prev) => !prev);
       },
     });
   };
