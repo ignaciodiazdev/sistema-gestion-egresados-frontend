@@ -43,7 +43,7 @@ export const Header = ({ toggleSidebar }) => {
               {fullName}
             </span>
             <span className="block text-xs font-medium text-black2">
-              Administrador
+              {me.is_staff === true ? "Administrador" : "Egresado"}
             </span>
           </span>
 
