@@ -192,6 +192,7 @@ export const adminRoutes = [
 import { Inicio } from "../users/pages/inicio/Inicio";
 import { CertificadosPage } from "../users/pages/certificados/CertificadosPage";
 import { ExperienciasPage } from "../users/pages/experencias/ExperienciasPage";
+import { EducacionesPage } from "../users/pages/educaciones/EducacionesPage";
 export const userRoutes = [
   {
     path: "/usuario-inicio",
@@ -215,6 +216,14 @@ export const userRoutes = [
     page: ExperienciasPage,
     icon: <RxDashboard />,
     name: "Experiencias Laborales",
+    in_sidebar: true,
+  },
+  {
+    path: "/educaciones",
+    layout: MainLayout,
+    page: EducacionesPage,
+    icon: <RxDashboard />,
+    name: "Formación Académica",
     in_sidebar: true,
   },
 ];
