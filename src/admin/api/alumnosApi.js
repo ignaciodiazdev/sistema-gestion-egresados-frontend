@@ -18,7 +18,7 @@ export const updateApiAlumnos = async (id, alumno) => {
   const url = `${BASE_API}/alumnos/${id}/`;
   try {
     const response = await fetch(url, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
