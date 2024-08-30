@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaSearch } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 import { IoIosArrowDown } from "react-icons/io";
 import { SlSettings } from "react-icons/sl";
 import { useAuth } from "../../auth/hooks/useAuth";
+import { Input } from "./Input";
 
 export const Header = ({ toggleSidebar }) => {
   const { logout, auth } = useAuth();
@@ -32,9 +33,16 @@ export const Header = ({ toggleSidebar }) => {
         >
           <GiHamburgerMenu />
         </button>
-        <h1 className="hidden text-2xl text-black2 font-bold sm:block">
-          Dashboard
-        </h1>
+        <div className="hidden sm:block">
+          <div className="block rounded-[1rem] border border-primary py-3 px-5 text-gray-900 ring-inset ring-gray-300 placeholder:text-gray-400 focus:shadow-sm sm:text-sm sm:leading-6 outline-0 hover:border-gray-300 bg-gray-100 w-[300px]">
+            <div className="flex items-center gap-3">
+              <span className="text-bodyDark2">
+                <FaSearch />
+              </span>
+              <span className="text-bodyDark2">Búsqueda...</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="relative cursor-pointer" onClick={toggleDropdown}>
         <div className="flex items-center gap-4">

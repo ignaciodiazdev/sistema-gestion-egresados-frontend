@@ -11,8 +11,8 @@ export const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className="p-6 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <img src="/assets/svgs/logo.svg" alt="Logo" className="w-7" />
-          <span className="text-2xl lg:text-3xl font-semibold">
-            Universidad
+          <span className="text-2xl lg:text-2xl font-semibold">
+            Egresados UNFV
           </span>
         </div>
         <button
