@@ -44,7 +44,7 @@ export const CardDatoUsuarioAll = ({ userInfo }) => {
         </div>
       </div>
       <div>
-        <div className="flex justify-between text-sm md:text-base  mb-2">
+        <div className="flex justify-between text-sm mb-2">
           <span className="font-bold">Estado Civil:</span>
           <span>Soltero/a</span>
         </div>

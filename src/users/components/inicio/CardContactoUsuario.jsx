@@ -33,7 +33,7 @@ export const CardContactoUsuarioContent = ({ userInfo }) => {
             <span className="font-bold text-primary text-xl">
               <MdOutlineMailOutline />
             </span>
-            <span>{userInfo.correo}</span>
+            <span className="truncate">{userInfo.correo}</span>
           </div>
         </div>
         <div>
@@ -41,17 +41,18 @@ export const CardContactoUsuarioContent = ({ userInfo }) => {
             <span className="font-bold text-primary text-xl">
               <BsHouseDoor />
             </span>
-            <span>{userInfo.direccion}</span>
+            <span className="truncate">{userInfo.direccion}</span>
           </div>
         </div>
         <div>
-          <div className="flex gap-4 text-sm md:text-base mb-4">
+          <div className="flex gap-4 text-sm mb-4">
             <span className="font-bold text-primary text-xl">
               <CiLinkedin />
             </span>
             <Link
               to={userInfo.linkedin || ""}
-              className="hover:text-primary hover:scale-105 hover:underline transition-all"
+              target="_blank"
+              className="hover:text-blue hover:scale-105 hover:underline transition-all"
             >
               Linkedin
             </Link>

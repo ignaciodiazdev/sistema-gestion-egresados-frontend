@@ -25,7 +25,7 @@ export const ExperienciasPage = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h2 className="mb-2 font-bold text-xl lg:text-2xl">
           Mis Experiencias Laborales
         </h2>

@@ -1,6 +1,5 @@
 import { FaLocationArrow } from "react-icons/fa";
 import { IoBusinessOutline } from "react-icons/io5";
-import { LiaBusinessTimeSolid } from "react-icons/lia";
 import { MdDateRange } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -9,8 +8,8 @@ export const DetailEmpleo = ({ empleo }) => {
   return (
     <div className="flex flex-col md:flex-row md:justify-between items-start justify-start gap-3">
       <div className="flex flex-col md:flex-row md:justify-between items-start justify-start gap-3 xl:gap-4">
-        <div className="hidden md:block my-2 p-2 xl:p-4 text-3xl bg-yellow-200 text-yellow-600 bg-opacity-40 rounded-sm">
-          <LiaBusinessTimeSolid />
+        <div className="hidden md:block my-2 p-2 xl:p-4 text-3xl  rounded-md shadow-sm shadow-yellow-300 bg-gradient-to-tr from-green-300 to-yellow-300">
+          <img src="/assets/svgs/empleado.svg" alt="" width="50px" />
         </div>
         <div>
           <p className="my-1 font-bold text-primary text-base lg:text-base">
@@ -28,21 +27,21 @@ export const DetailEmpleo = ({ empleo }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col text-[13px] gap-1 xl:gap-2 w-full md:w-[200px] ">
+      <div className="flex flex-col text-[13px] gap-1 xl:gap-2 w-full md:w-[200px] md:border-l-2 md:pl-4">
         <div className="flex items-center gap-2">
-          <span>
+          <span className="text-third text-xl">
             <IoBusinessOutline />
           </span>
           <p>{empleo.modalidad}</p>
         </div>
         <div className="flex items-center gap-2">
-          <span>
+          <span className="text-third text-xl">
             <RiMapPinLine />
           </span>
           <p>{empleo.ubicacion}</p>
         </div>
         <div className="flex items-center gap-2">
-          <span>
+          <span className="text-third text-xl">
             <MdDateRange />
           </span>
           <p>Exp: {empleo.fecha_expiracion}</p>

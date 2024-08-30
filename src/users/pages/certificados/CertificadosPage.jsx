@@ -25,7 +25,7 @@ export const CertificadosPage = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h2 className="mb-2 font-bold text-xl lg:text-2xl">Mis Certificados</h2>
         <div className="flex justify-end my-2">
           <button
