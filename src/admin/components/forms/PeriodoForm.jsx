@@ -80,11 +80,15 @@ export const PeriodoForm = () => {
             {...register("nombre", {
               required: {
                 value: true,
-                message: "Campo requerido",
+                message: "Campo requerido*",
               },
             })}
           />
-          {errors.nombre && <span>{errors.nombre.message}</span>}
+          {errors.nombre && (
+            <span className="text-sm text-required ml-3">
+              {errors.nombre.message}
+            </span>
+          )}
         </div>
       </div>
       <div className="md:flex md:justify-end">
