@@ -8,6 +8,7 @@ import {
   Input,
   Table,
 } from "../../../../shared/components";
+import { showAlert } from "../../../../utils/showAlert";
 
 export const PeriodoList = () => {
   const navigate = useNavigate();
@@ -20,7 +21,14 @@ export const PeriodoList = () => {
     navigate(`/periodos/editar/${row["id"]}`);
   };
   const handleDelete = (row) => {
-    deletePeriodo(row["id"]);
+    showAlert({
+      title: "¿Está seguro de eliminar?",
+      text: "No podrás revertir esta acción",
+      confirmText: "Sí, eliminar!",
+      onConfirm: () => {
+        deletePeriodo(row["id"]);
+      },
+    });
   };
   const handleRegister = () => {
     navigate("/periodos/registrar");

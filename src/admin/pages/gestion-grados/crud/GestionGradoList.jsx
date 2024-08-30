@@ -3,6 +3,7 @@ import { useGestionGrados } from "../../../hooks/useGestionGrados";
 import { useNavigate } from "react-router-dom";
 import { GestionGradoTable } from "../../../components/tables/GestionGradoTable";
 import { ButtonItem, Input } from "../../../../shared/components";
+import { showAlert } from "../../../../utils/showAlert";
 
 export const GestionGradoList = () => {
   // const [gestionGrados, setData] = useState([]);
@@ -17,7 +18,14 @@ export const GestionGradoList = () => {
     navigate(`/gestion-grados/editar/${row["id"]}`);
   };
   const handleDelete = (row) => {
-    deleteGestionGrado(row["id"]);
+    showAlert({
+      title: "¿Está seguro de eliminar?",
+      text: "No podrás revertir esta acción",
+      confirmText: "Sí, eliminar!",
+      onConfirm: () => {
+        deleteGestionGrado(row["id"]);
+      },
+    });
   };
   const handleRegister = () => {
     navigate("/gestion-grados/registrar");

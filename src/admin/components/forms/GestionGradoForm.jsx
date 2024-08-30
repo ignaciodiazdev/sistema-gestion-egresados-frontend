@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useAlumnos } from "../../hooks/useAlumnos";
 import { useGradosAcademicos } from "../../hooks/useGradosAcademicos";
 import { getApiAlumnosByFilter } from "../../api/alumnosApi";
+import { showAlert } from "../../../utils/showAlert";
 
 export const GestionGradoForm = () => {
   const { id } = useParams();
@@ -32,7 +33,6 @@ export const GestionGradoForm = () => {
   });
 
   const formData = async (data) => {
-    console.log("Aquí deberia ir una Alerta de Confirmación Toastify");
     const gestionGrado = {
       codigo_modular: data.codigo_modular,
       alumno: data.alumno,
@@ -40,14 +40,25 @@ export const GestionGradoForm = () => {
     };
 
     if (!id) {
-      postGestionGrado(gestionGrado);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postGestionGrado(gestionGrado);
+          reset();
+        },
+      });
     } else {
-      const response = await updateGestionGrado(id, gestionGrado);
-      if (response.ok) {
-        navigate("/gestion-grados");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateGestionGrado(id, gestionGrado);
+          navigate("/gestion-grados");
+        },
+      });
     }
   };
   useEffect(() => {

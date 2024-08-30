@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAlumnos } from "../../hooks/useAlumnos";
-import { Input, TextArea } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { Input } from "../../../shared/components";
 import { usePeriodos } from "../../hooks/usePeriodos";
 import { useCarreras } from "../../hooks/useCarreras";
 import { useEstados } from "../../hooks/useEstados";
+import { showAlert } from "../../../utils/showAlert";
 
 export const AlumnoForm = () => {
   const { id } = useParams();
@@ -58,14 +58,25 @@ export const AlumnoForm = () => {
     };
 
     if (!id) {
-      postAlumno(alumno);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postAlumno(alumno);
+          reset();
+        },
+      });
     } else {
-      const response = await updateAlumno(id, alumno);
-      if (response.ok) {
-        navigate("/alumnos");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateAlumno(id, alumno);
+          navigate("/alumnos");
+        },
+      });
     }
   };
   useEffect(() => {

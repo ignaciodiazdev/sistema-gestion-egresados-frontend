@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGradosAcademicos } from "../../hooks/useGradosAcademicos";
 import { Input } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { showAlert } from "../../../utils/showAlert";
 
 export const GradoAcademicoForm = () => {
   const { id } = useParams();
@@ -27,20 +27,30 @@ export const GradoAcademicoForm = () => {
   });
 
   const formData = async (data) => {
-    console.log("Aquí deberia ir una Alerta de Confirmación Toastify");
     const gradoAcademico = {
       nombre: data.nombre,
     };
 
     if (!id) {
-      postGradoAcademico(gradoAcademico);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postGradoAcademico(gradoAcademico);
+          reset();
+        },
+      });
     } else {
-      const response = await updateGradoAcademico(id, gradoAcademico);
-      if (response.ok) {
-        navigate("/grados-academicos");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateGradoAcademico(id, gradoAcademico);
+          navigate("/grados-academicos");
+        },
+      });
     }
   };
   useEffect(() => {

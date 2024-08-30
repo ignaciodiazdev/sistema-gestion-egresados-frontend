@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAlumnos } from "../../hooks/useAlumnos";
-import { Input, TextArea } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { Input } from "../../../shared/components";
 import { usePeriodos } from "../../hooks/usePeriodos";
 import { useCarreras } from "../../hooks/useCarreras";
 import { useEstados } from "../../hooks/useEstados";
+import { showAlert } from "../../../utils/showAlert";
 
 export const EgresadoForm = () => {
   const { id } = useParams();
@@ -41,7 +41,6 @@ export const EgresadoForm = () => {
   });
 
   const formData = async (data) => {
-    console.log("Aquí deberia ir una Alerta de Confirmación Toastify");
     const alumno = {
       codigo: data.codigo,
       nombre: data.nombre,
@@ -58,14 +57,25 @@ export const EgresadoForm = () => {
     };
 
     if (!id) {
-      postAlumno(alumno);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postAlumno(alumno);
+          reset();
+        },
+      });
     } else {
-      const response = await updateAlumno(id, alumno);
-      if (response.ok) {
-        navigate("/egresados");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateAlumno(id, alumno);
+          navigate("/egresados");
+        },
+      });
     }
   };
   useEffect(() => {

@@ -8,6 +8,7 @@ import {
   Input,
   Table,
 } from "../../../../shared/components";
+import { showAlert } from "../../../../utils/showAlert";
 
 export const GradoAcademicoList = () => {
   const navigate = useNavigate();
@@ -21,7 +22,14 @@ export const GradoAcademicoList = () => {
     navigate(`/grados-academicos/editar/${row["id"]}`);
   };
   const handleDelete = (row) => {
-    deleteGradoAcademico(row["id"]);
+    showAlert({
+      title: "¿Está seguro de eliminar?",
+      text: "No podrás revertir esta acción",
+      confirmText: "Sí, eliminar!",
+      onConfirm: () => {
+        deleteGradoAcademico(row["id"]);
+      },
+    });
   };
   const handleRegister = () => {
     navigate("/grados-academicos/registrar");

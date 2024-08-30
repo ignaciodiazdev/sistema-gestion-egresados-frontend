@@ -8,6 +8,7 @@ import {
   Input,
   Table,
 } from "../../../../shared/components";
+import { showAlert } from "../../../../utils/showAlert";
 
 export const AlumnoList = () => {
   const navigate = useNavigate();
@@ -22,7 +23,14 @@ export const AlumnoList = () => {
     navigate(`/alumnos/editar/${row["id"]}`);
   };
   const handleDelete = (row) => {
-    deleteAlumno(row["id"]);
+    showAlert({
+      title: "¿Está seguro de eliminar?",
+      text: "No podrás revertir esta acción",
+      confirmText: "Sí, eliminar!",
+      onConfirm: () => {
+        deleteAlumno(row["id"]);
+      },
+    });
   };
   const handleRegister = () => {
     navigate("/alumnos/registrar");

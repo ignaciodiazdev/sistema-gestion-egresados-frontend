@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { usePeriodos } from "../../hooks/usePeriodos";
 import { Input } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { showAlert } from "../../../utils/showAlert";
 
 export const PeriodoForm = () => {
   const { id } = useParams();
@@ -27,20 +27,30 @@ export const PeriodoForm = () => {
   });
 
   const formData = async (data) => {
-    console.log("Aquí deberia ir una Alerta de Confirmación Toastify");
     const periodo = {
       nombre: data.nombre,
     };
 
     if (!id) {
-      postPeriodo(periodo);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postPeriodo(periodo);
+          reset();
+        },
+      });
     } else {
-      const response = await updatePeriodo(id, periodo);
-      if (response.ok) {
-        navigate("/periodos");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updatePeriodo(id, periodo);
+          navigate("/periodos");
+        },
+      });
     }
   };
   useEffect(() => {

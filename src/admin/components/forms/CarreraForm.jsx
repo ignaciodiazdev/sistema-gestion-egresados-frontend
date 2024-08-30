@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCarreras } from "../../hooks/useCarreras";
 import { Input } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { showAlert } from "../../../utils/showAlert";
 
 export const CarreraForm = () => {
   const { id } = useParams();
@@ -33,14 +33,25 @@ export const CarreraForm = () => {
     };
 
     if (!id) {
-      postCarrera(carrera);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postCarrera(carrera);
+          reset();
+        },
+      });
     } else {
-      const response = await updateCarrera(id, carrera);
-      if (response.ok) {
-        navigate("/carreras");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateCarrera(id, carrera);
+          navigate("/carreras");
+        },
+      });
     }
   };
   useEffect(() => {

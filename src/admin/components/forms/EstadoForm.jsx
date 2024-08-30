@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEstados } from "../../hooks/useEstados";
 import { Input } from "../../../shared/components";
-import { toast } from "react-toastify";
+import { showAlert } from "../../../utils/showAlert";
 
 export const EstadoForm = () => {
   const { id } = useParams();
@@ -27,20 +27,30 @@ export const EstadoForm = () => {
   });
 
   const formData = async (data) => {
-    console.log("Aquí deberia ir una Alerta de Confirmación Toastify");
     const estado = {
       nombre: data.nombre,
     };
 
     if (!id) {
-      postEstado(estado);
-      reset();
-      toast("Registro Exitoso!");
+      showAlert({
+        title: "¿Estás seguro de registrar?",
+        text: "",
+        confirmText: "Sí, registrar!",
+        onConfirm: () => {
+          postEstado(estado);
+          reset();
+        },
+      });
     } else {
-      const response = await updateEstado(id, estado);
-      if (response.ok) {
-        navigate("/estados");
-      }
+      showAlert({
+        title: "¿Estás seguro de guardar los cambios?",
+        text: "",
+        confirmText: "Sí, guardar!",
+        onConfirm: async () => {
+          await updateEstado(id, estado);
+          navigate("/estados");
+        },
+      });
     }
   };
   useEffect(() => {
