@@ -59,7 +59,7 @@ export const DashboardPage = () => {
   }, [alumnos, gestionGrados]);
 
   return (
-    <div className="flex flex-col gap-4 lg:gap-10">
+    <div className="flex flex-col gap-4 lg:gap-8">
       <section className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-5">
         <Card
           icono={<GoStack />}
