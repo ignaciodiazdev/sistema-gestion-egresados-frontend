@@ -26,7 +26,7 @@ export const SignIn = () => {
             <div className="mb-5 flex justify-center gap-2">
               <img src="/assets/svgs/logo.svg" alt="Logo" className="w-7" />
               <span className="text-3xl lg:text-3xl font-bold">
-                Universidad
+                Gestión de Egresados - UNFV
               </span>
             </div>
             <p className="font-medium 2xl:px-20 text-gray-200">
