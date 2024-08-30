@@ -36,7 +36,8 @@ import {
   GradoAcademicoRegister,
   GradoAcademicoEdit,
 } from "../admin/pages/grados-academicos/crud";
-
+// <=== Imports Empleos ===>
+import { EmpleosPage as EmpleosAdminPage } from "../admin/pages/empleos";
 import { UsuariosPage } from "../admin/pages/usuarios";
 
 export const adminRoutes = [
@@ -176,6 +177,14 @@ export const adminRoutes = [
     layout: MainLayout,
     page: EstadoEdit,
     in_sidebar: false,
+  },
+  {
+    path: "/ofertas",
+    layout: MainLayout,
+    page: EmpleosAdminPage,
+    icon: <IoBusinessOutline />,
+    name: "Ofertas Laborales",
+    in_sidebar: true,
   },
   {
     path: "/grados-academicos",
