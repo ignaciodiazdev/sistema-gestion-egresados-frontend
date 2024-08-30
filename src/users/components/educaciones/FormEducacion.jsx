@@ -55,26 +55,24 @@ export const FormEducacion = ({ educacion, setRefresh }) => {
         title: "¿Estás seguro de registrar?",
         text: "Se guardaran los cambios",
         confirmText: "Sí, registrar!",
-        onConfirm: () => {
-          postEducacion(educacionNewData);
+        onConfirm: async () => {
+          await postEducacion(educacionNewData);
           reset();
           closeModal();
           setRefresh((prev) => !prev);
         },
       });
     } else {
-      const response = await updateEducacion(educacion.id, educacionNewData);
-      if (response.ok) {
-        showAlert({
-          title: "¿Estás seguro de editar?",
-          text: "",
-          confirmText: "Sí, editar!",
-          onConfirm: () => {
-            setRefresh((prev) => !prev);
-            closeModal();
-          },
-        });
-      }
+      showAlert({
+        title: "¿Estás seguro de editar?",
+        text: "",
+        confirmText: "Sí, editar!",
+        onConfirm: async () => {
+          await updateEducacion(educacion.id, educacionNewData);
+          closeModal();
+          setRefresh((prev) => !prev);
+        },
+      });
     }
   };
 

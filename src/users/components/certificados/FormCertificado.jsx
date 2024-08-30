@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useCertificados } from "../../../hooks/useCertificados";
 import { Input } from "../../../shared/components";
-import { toast } from "react-toastify";
 import { useAuth } from "../../../auth/hooks/useAuth";
 import { useModal } from "../../../shared/hooks/useModal";
 import { showAlert } from "../../../utils/showAlert";
@@ -44,29 +43,24 @@ export const FormCertificado = ({ certificado, setRefresh }) => {
         title: "¿Estás seguro de registrar?",
         text: "",
         confirmText: "Sí, registrar!",
-        onConfirm: () => {
-          postCertificado(certificadoNewData);
+        onConfirm: async () => {
+          await postCertificado(certificadoNewData);
           reset();
           closeModal();
           setRefresh((prev) => !prev);
         },
       });
     } else {
-      const response = await updateCertificado(
-        certificado.id,
-        certificadoNewData
-      );
-      if (response.ok) {
-        showAlert({
-          title: "¿Estás seguro de editar?",
-          text: "",
-          confirmText: "Sí, editar!",
-          onConfirm: () => {
-            closeModal();
-            setRefresh((prev) => !prev);
-          },
-        });
-      }
+      showAlert({
+        title: "¿Estás seguro de editar?",
+        text: "",
+        confirmText: "Sí, editar!",
+        onConfirm: async () => {
+          await updateCertificado(certificado.id, certificadoNewData);
+          closeModal();
+          setRefresh((prev) => !prev);
+        },
+      });
     }
   };
 

@@ -55,29 +55,24 @@ export const FormExperiencia = ({ experiencia, setRefresh }) => {
         title: "¿Estás seguro de registrar?",
         text: "Se guardaran los cambios",
         confirmText: "Sí, registrar!",
-        onConfirm: () => {
-          postExperiencia(experienciaNewData);
+        onConfirm: async () => {
+          await postExperiencia(experienciaNewData);
           reset();
           closeModal();
           setRefresh((prev) => !prev);
         },
       });
     } else {
-      const response = await updateExperiencia(
-        experiencia.id,
-        experienciaNewData
-      );
-      if (response.ok) {
-        showAlert({
-          title: "¿Estás seguro de editar?",
-          text: "",
-          confirmText: "Sí, editar!",
-          onConfirm: () => {
-            setRefresh((prev) => !prev);
-            closeModal();
-          },
-        });
-      }
+      showAlert({
+        title: "¿Estás seguro de editar?",
+        text: "",
+        confirmText: "Sí, editar!",
+        onConfirm: async () => {
+          await updateExperiencia(experiencia.id, experienciaNewData);
+          closeModal();
+          setRefresh((prev) => !prev);
+        },
+      });
     }
   };
 
