@@ -37,6 +37,8 @@ import {
   GradoAcademicoEdit,
 } from "../admin/pages/grados-academicos/crud";
 
+import { UsuariosPage } from "../admin/pages/usuarios";
+
 export const adminRoutes = [
   {
     path: "/dashboard",
@@ -105,6 +107,14 @@ export const adminRoutes = [
     layout: MainLayout,
     page: GestionGradoEdit,
     in_sidebar: false,
+  },
+  {
+    path: "/usuarios",
+    layout: MainLayout,
+    page: UsuariosPage,
+    icon: <BsBook />,
+    name: "Usuarios",
+    in_sidebar: true,
   },
   //   <========= Mantenimiento =========>
   {
