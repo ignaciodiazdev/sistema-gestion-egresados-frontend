@@ -40,7 +40,7 @@ export const CardDatoUsuarioAll = ({ userInfo }) => {
       <div>
         <div className="flex justify-between text-sm mb-2">
           <span className="font-bold">Carrera:</span>
-          <span>{userInfo.carrera_data.nombre}</span>
+          <span className="truncate">{userInfo.carrera_data.nombre}</span>
         </div>
       </div>
       <div>
