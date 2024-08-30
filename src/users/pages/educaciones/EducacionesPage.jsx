@@ -27,7 +27,7 @@ export const EducacionesPage = () => {
     <section>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h2 className="mb-2 font-bold text-xl lg:text-2xl">
-          Mis Educaciones Laborales
+          Mi Formación Académica
         </h2>
         <div className="flex justify-end my-2">
           <button
