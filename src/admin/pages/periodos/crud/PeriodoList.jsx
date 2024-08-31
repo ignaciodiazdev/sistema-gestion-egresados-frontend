@@ -9,6 +9,7 @@ import {
   Table,
 } from "../../../../shared/components";
 import { showAlert } from "../../../../utils/showAlert";
+import { ButtonExcelPeriodos } from "../../../components/excel/ButtonExcelPeriodos";
 
 export const PeriodoList = () => {
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ export const PeriodoList = () => {
   console.log(periodos);
   return (
     <>
+      <ButtonExcelPeriodos periodos={filteredPeriodos} />
       <section className="p-5 bg-white rounded-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 border border-primary">
         <div className="flex flex-col gap-2 w-full md:flex-row">
           <SelectItem

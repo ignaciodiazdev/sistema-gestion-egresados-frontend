@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { GestionGradoTable } from "../../../components/tables/GestionGradoTable";
 import { ButtonItem, Input } from "../../../../shared/components";
 import { showAlert } from "../../../../utils/showAlert";
+import { ButtonExcelGestionGrados } from "../../../components/excel/ButtonExcelGestionGrados";
 
 export const GestionGradoList = () => {
   // const [gestionGrados, setData] = useState([]);
@@ -79,6 +80,7 @@ export const GestionGradoList = () => {
 
   return (
     <>
+      <ButtonExcelGestionGrados gestionGrados={filteredData} />
       <section className="p-5 bg-white rounded-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 border border-primary">
         <div className="flex flex-col gap-2 w-full md:flex-row">
           <div className="w-full lg:max-w-48">

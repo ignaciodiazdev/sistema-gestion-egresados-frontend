@@ -9,6 +9,7 @@ import {
   Table,
 } from "../../../../shared/components";
 import { showAlert } from "../../../../utils/showAlert";
+import { ButtonExcelGradosAcademicos } from "../../../components/excel/ButtonExcelGradosAcademicos";
 
 export const GradoAcademicoList = () => {
   const navigate = useNavigate();
@@ -58,6 +59,9 @@ export const GradoAcademicoList = () => {
   console.log(gradosAcademicos);
   return (
     <>
+      <ButtonExcelGradosAcademicos
+        gradosAcademicos={filteredGradosAcademicos}
+      />
       <section className="p-5 bg-white rounded-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 border border-primary">
         <div className="flex flex-col gap-2 w-full md:flex-row">
           <SelectItem

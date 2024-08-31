@@ -9,6 +9,7 @@ import {
   Table,
 } from "../../../../shared/components";
 import { showAlert } from "../../../../utils/showAlert";
+import { ButtonExcelAlumnos } from "../../../components/excel/ButtonExcelAlumnos";
 
 export const AlumnoList = () => {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ export const AlumnoList = () => {
   console.log(getOnlyEstadoAlumnos);
   return (
     <>
+      <ButtonExcelAlumnos alumnos={filteredAlumnos} />
       <section className="p-5 bg-white rounded-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 border border-primary">
         <div className="flex flex-col gap-2 w-full md:flex-row">
           <SelectItem
