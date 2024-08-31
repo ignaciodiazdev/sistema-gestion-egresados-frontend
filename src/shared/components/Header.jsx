@@ -57,7 +57,7 @@ export const Header = ({ toggleSidebar }) => {
 
           <span className="h-12 w-12 rounded-full overflow-hidden flex items-center justify-center">
             <img
-              src="https://demo.tailadmin.com/src/images/user/user-01.png"
+              src="https://portal.bilardo.gov.tr/assets/pages/media/profile/profile_user.jpg"
               alt="User"
               className="h-full w-full object-cover"
             />
